@@ -1,0 +1,126 @@
+#! C:/Program Files/Nuke16.0v8/nuke-16.0.8.dll -nx
+version 16.0 v8
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2047" h="1074" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1384" stretch="1"/>
+            <splitter orientation="2">
+                <split size="605"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="426"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+                <page id="Scenegraph.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Users/admin/BW/.nk
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/Users/admin/BW/TestBlender.png
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read1
+ xpos -116
+ ypos -215
+}
+set Nc0a06d00 [stack 0]
+Keyer {
+ operation "luminance key"
+ range {0.3545933184 1 1 1}
+ name Keyer1
+ xpos 207
+ ypos -191
+}
+Premult {
+ name Premult1
+ xpos 207
+ ypos -111
+}
+Glow2 {
+ brightness 10
+ name Glow2
+ xpos 207
+ ypos -66
+}
+push $Nc0a06d00
+Merge2 {
+ inputs 2
+ name Merge1
+ xpos -127
+ ypos -66
+}
+Glow2 {
+ tint {0.8008176088 0.805642724 0.8412033916 1}
+ tolerance 0.06
+ brightness 2.26
+ saturation 0.485
+ size 4.8
+ name Glow1
+ xpos -117
+ ypos -10
+}
+Blur {
+ size 0.14
+ name Blur1
+ xpos -128
+ ypos 41
+}
+Grain2 {
+ name Grain2_1
+ label "Kodak 5248"
+ xpos -128
+ ypos 103
+ red_m 0.13
+ green_m 0.21
+ blue_m 0.175
+ minimum {0 0 0}
+}
+set Na89ad500 [stack 0]
+push $Na89ad500
+Viewer {
+ inputs 2
+ frame 1
+ frame_range 1-100
+ colour_sample_bbox {0.5822916627 -0.4177083373 0.5833333135 -0.4166666567}
+ samplepoints {
+  {0.5822916627 -0.4177083373}
+ }
+ monitorOutNDISenderName "Nuke - untitled - Viewer1"
+ monitorOutOutputTransform rec709
+ name Viewer1
+ xpos -107
+ ypos 192
+}

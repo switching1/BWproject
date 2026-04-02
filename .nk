@@ -15,14 +15,14 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
                     <page id="Viewer.1"/>
                 </dock>
                 <split size="426"/>
-                <dock id="" activePageId="DAG.1" focus="true">
+                <dock id="" activePageId="DAG.1">
                     <page id="DAG.1"/>
                     <page id="Curve Editor.1"/>
                     <page id="DopeSheet.1"/>
                 </dock>
             </splitter>
             <split size="615"/>
-            <dock id="" activePageId="Properties.1">
+            <dock id="" activePageId="Properties.1" focus="true">
                 <page id="Properties.1"/>
                 <page id="uk.co.thefoundry.backgroundrenderview.1"/>
                 <page id="Scenegraph.1"/>
@@ -33,7 +33,7 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 }
 Root {
  inputs 0
- name C:/Users/admin/BW/.nk
+ name C:/Users/admin/BWproject/.nk
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
  proxy_type scale
  proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
@@ -49,14 +49,14 @@ Root {
 Read {
  inputs 0
  file_type png
- file C:/Users/admin/BW/TestBlender.png
+ file C:/Users/admin/BWproject/TestBlender.png
  format "1920 1080 0 0 1920 1080 1 HD_1080"
  origset true
- name Read1
- xpos -116
+ name Read2
+ xpos -113
  ypos -215
 }
-set Nc0a06d00 [stack 0]
+set Nca35e800 [stack 0]
 Keyer {
  operation "luminance key"
  range {0.3545933184 1 1 1}
@@ -75,7 +75,15 @@ Glow2 {
  xpos 207
  ypos -66
 }
-push $Nc0a06d00
+push $Nca35e800
+Grade {
+ blackpoint -0.02
+ white 2.26
+ name Grade1
+ selected true
+ xpos -127
+ ypos -112
+}
 Merge2 {
  inputs 2
  name Merge1
@@ -106,10 +114,11 @@ Grain2 {
  red_m 0.13
  green_m 0.21
  blue_m 0.175
+ black {0 0 0}
  minimum {0 0 0}
 }
-set Na89ad500 [stack 0]
-push $Na89ad500
+set Ne6e12000 [stack 0]
+push $Ne6e12000
 Viewer {
  inputs 2
  frame 1
@@ -118,9 +127,19 @@ Viewer {
  samplepoints {
   {0.5822916627 -0.4177083373}
  }
- monitorOutNDISenderName "Nuke - untitled - Viewer1"
+ monitorOutNDISenderName "Nuke - .nk - Viewer1"
  monitorOutOutputTransform rec709
  name Viewer1
  xpos -107
  ypos 192
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/Users/admin/BW/TestBlender.png
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ origset true
+ name Read1
+ xpos 491
+ ypos -171
 }
