@@ -1,1 +1,3 @@
 decocher freestyle > as render pass si on veut le voir dans le render (mais est-ce que on l'aura dans les layers ?)
+
+pour bake les contraintes : select object > object > animation > Bake Action > pose ?
