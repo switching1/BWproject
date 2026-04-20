@@ -1,3 +1,12 @@
 decocher freestyle > as render pass si on veut le voir dans le render (mais est-ce que on l'aura dans les layers ?)
 
 pour bake les contraintes : select object > object > animation > Bake Action > pose ?
+
+popnet :
+source first input emission type = all points
+
+feather:
+dans pop wind amplitude a trois effet pas trop mal ?
+
+pour que les plumes ne s'accrochent pas aux collision :
+dans le solver baisser static threshold et mettre dynamic scale a 0
